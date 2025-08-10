@@ -837,11 +837,7 @@ const data = {
                     "sku": "SKU_091",
                     "discount": 4.59,
                     "quantity": 3,
-<<<<<<< HEAD
                     "sale_price": 508.94    
-=======
-                    "sale_price": 508.94
->>>>>>> 17dac5a746e67da07bb571b7b8b98fa70a7daab1
                 },
                 {
                     "sku": "SKU_094",
