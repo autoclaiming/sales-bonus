@@ -113,7 +113,6 @@ function analyzeSalesData(data, options) {
       const revenue = calculateRevenue(product, item); // Посчитать выручку (revenue) с учётом скидки через функцию calculateRevenue
       const profit = revenue - cost; // Посчитать прибыль: выручка минус себестоимость
 
-      console.log("profit :>> ", profit);
       // Увеличить общую накопленную прибыль (profit) у продавца
       sellerStats.map((value) => {
         if (seller.id === value.id) {
@@ -137,11 +136,10 @@ function analyzeSalesData(data, options) {
 
   // @TODO: Сортировка продавцов по прибыли
   sellerStats.sort((a, b) => b.total_profit - a.total_profit);
-  console.log("sellerStats :>> ", sellerStats);
 
   // @TODO: Назначение премий на основе ранжирования
   sellerStats.forEach((seller, index, Array) => {
-    seller.bonus = calculateBonusByProfit(index, Array.length, seller); // Считаем бонус
+    seller.bonus = calculateBonus(index, Array.length, seller); // Считаем бонус
     seller.products_sold = Object.entries(seller.products_sold) // seller.top_products = // Формируем топ-10 товаров
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10);
